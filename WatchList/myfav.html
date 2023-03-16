@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite List</title>
+
+    <!-- Linking bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!-- LINKING MYFAV CSS -->
+    <link rel="stylesheet" href="./myfav.css">
+
+       <!-- LINKING MAIN CSS  -->
+      <link rel="stylesheet" href="../Styles/style.css">
+
+      <!-- LINKING FONT-AWESOME -->
+    <script
+    src="https://kit.fontawesome.com/74894dafb2.js"
+    crossorigin="anonymous"
+  ></script>
+
+    <!-- GOOGLE FONTS  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap" rel="stylesheet">
+</head>
+
+
+
+<body>
+    <!-- MAIN CLASS -->
+    <section class="main">
+
+
+         <nav class="nav-menu">
+
+            <!-- nav-bar first section  -->
+             <!-- floating side-menu  -->
+              <div class="logo-menu" onclick=showMenu()>
+                <div class="imdb-logo">
+                     <img src="../assets/IMDB.png" alt="imdb-logo">
+                </div>
+                <div class="bar-menu hover">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+              </div>
+              <div class="my-fav" ><h1><span style="font-size:40px; margin-left: 200px;" >Favorites</span></h1></div>
+            
+              <div class="fabs-login">
+                <h1 class="hover imdbpro" style="font-size:20px;">IMDb<span id="diff-color">Pro</span>  |</h1>  
+                <!-- Pop-up page for imdbPro -->
+<!-- ----------- -->
+<div class="pop-up">
+  <div class="popup-img">
+       <img src="../assets/propop.png" alt="popup-img-">
+  </div>
+
+  <div class="pop-up-desc">
+    <h2 style="font-size: 30px;">MAKE YOUR MOVE</h2>
+    <ul class="popup-list">
+      <li>Join the largest entertainment network and find new projects.</li>
+      <li>New ways to authentically represent yourself</li>
+      <li>Stay up-to-date with all the industry trends and insights </li>
+     
+  </ul>
+   <button class="popup-btn">Try IMDbPro Free</button>
+  </div>
+ </div>
+<!-- --------------- -->
+              </div>
+
+         </nav>
+            
+       <!-- Floating side-menu of imdb -->
+
+         <div class="side-option" id="side">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <br>
+          <br>
+           <ul class="side-list">
+               <li>
+                 <!-- ICONS FOR SIDE-MENU -->
+                <div> <i class="fa-solid fa-film"></i>&nbsp;<span>Movies</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <li>
+                <div> <i class="fa-solid fa-tv"></i>&nbsp;<span>Tv Shows</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <li>
+                <div><i class="fa-solid fa-video"></i>&nbsp;<span>Watch</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <li>
+                <div> <i class="fa-solid fa-award"></i>&nbsp;<span>Awards & Events</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <li>
+                <div><i class="fa-solid fa-person"></i>&nbsp;<span>Celebs</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <li>
+                <div><i class="fa-solid fa-globe"></i>&nbsp;<span>Community</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <br>
+               <br>
+               <li>
+                  <div>
+                    <h4>IMDbPro</h4>
+                    <p style="font-size: 15px;">For Industrial Professionals</p>
+                  </div>
+                  <div><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+               </li>
+             
+           </ul>
+       </div>
+
+
+       <!-- Favorites movie list -->
+    <section id="header">
+        <!-- BACK BTN -->
+        <button id="home" class="fab-btn"><a href="../index.html"><i class="fas fa-chevron-left"></i>Home</a></button>
+        <!-- TITLE  -->
+        <span>My Favourite List</span>
+        <!-- CLEAR ALL-BTN-->
+        <div id="btns">
+            <button id="clear-whole-list" class="fab-btn">Clear All</button>
+        </div>
+    </section>
+    <!-- DISPLAY MOVIE LIST WHEN API IS CALLED -->
+    <div id="list-container">
+    </div>
+
+    </section>
+            <!-- FOOTER -->
+            <footer class="bg-dark text-center text-white fixed-bottom">
+              <!-- Grid container -->
+              <div class="container ">
+                <!-- Section: Social media -->
+                <section class="mb-1">
+                  <!-- Facebook -->
+                  <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/imdb" role="button"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+            
+                  <!-- Twitter -->
+                  <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/imdb" role="button"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+            
+            
+                  <!-- Instagram -->
+                  <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/imdb/" role="button"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+        
+                   <!-- youtube -->
+                   <a class="btn btn-outline-light btn-floating m-1" href="https://www.youtube.com/imdb" role="button"
+                   ><i class="fab fa-youtube"></i
+                 ></a>
+        
+                 <!-- tiktok -->
+                 <a class="btn btn-outline-light btn-floating m-1" href="https://www.tiktok.com/@imdb" role="button"
+                 ><i class="fab fa-tiktok"></i
+               ></a>
+            
+                
+                </section>
+                <!-- Section: Social media -->
+              </div>
+              <!-- Grid container -->
+            
+              <!-- Copyright -->
+              <div class="text-center p-0" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 1990-2023 by IMDb.com, Inc.<br>
+                <a class="text-white" href="https://www.imdb.com/">IMDb</a>
+              </div>
+              <!-- Copyright -->
+            </footer>
+
+
+
+
+    <!-- LINKING JS -->
+   <script type="text/javascript" src="./myfav.js"></script> 
+</body>
+</html>

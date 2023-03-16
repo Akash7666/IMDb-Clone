@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDb clone</title>
+
+     <!-- BootStrap CDN  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+
+       <!-- Linking Style.css page  -->
+      <link rel="stylesheet" href="./Styles/style.css">
+
+      <!-- Linking font awesome script -->
+    <script
+    src="https://kit.fontawesome.com/74894dafb2.js"
+    crossorigin="anonymous"
+  ></script>
+
+    <!-- Linking Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Montserrat&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+</head>
+
+<!-- BODY SECTION -->
+<body>
+    <!-- MAIN CONTAINER  -->
+    <section class="main">   
+         <nav class="nav-menu">
+
+             <!-- nav-bar first section  -->
+             <!-- floating side-menu  -->
+              <div class="logo-menu" onclick=showMenu()>
+                <div class="imdb-logo" id="i-logo">
+                     <img src="./assets/IMDB.png" alt="imdb-logo">
+                </div>
+                <div class="bar-menu hover">
+                    <i class="fa-solid fa-bars"></i> <span>Menu</span>
+                </div>
+              </div>
+
+                 <!-- Search-box -->
+              <div class="search-box">
+                <input type="text" name="searchMovie" id="searchMovie" placeholder="Search IMDb"
+                autocomplete="off">
+                <div id="search-icon"> <i class="fa-solid fa-magnifying-glass"></i></div>
+              </div>
+
+              <!-- IMDB pro -->
+              <div class="fabs-login">
+                <h1 class="hover imdbpro" id="im-pro" style="font-size:20px;">IMDb<span id="diff-color">Pro</span>  |</h1>
+
+                 <!-- Pop-up page for imdbPro -->
+                <div class="pop-up">
+                  <div class="popup-img">
+                       <img src="./assets/propop.png" alt="popup-img-">
+                  </div>
+      
+                  <div class="pop-up-desc">
+                    <h2 style="font-size: 30px;">MAKE YOUR MOVE</h2>
+                    <ul class="popup-list">
+                      <li>Join the largest entertainment network and find new projects.</li>
+                      <li>New ways to authentically represent yourself</li>
+                      <li>Stay up-to-date with all the industry trends and insights </li>
+                     
+                  </ul>
+                   <button class="popup-btn">Try IMDbPro Free</button>
+                  </div>
+                 </div>
+
+
+                 <!-- Favorite and Sign-In  -->
+                <h3 class="hover"style="font-size:20px;"><a href="./WatchList/myfav.html" ><i class="fa-solid fa-folder-plus"></i> Favorite</a></h3>
+                <h3 class="hover" style="font-size:20px;" id="signin"><a href="https://www.imdb.com/registration/signin?ref=nv_generic_lgin&u=%2F" target="_blank">Sign In</a></h3>
+              </div>
+         </nav>
+            
+         <!-- Floating side-menu of imdb -->
+        
+          <!-- Menu and Logo-->
+
+         <div class="side-option" id="side">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <br>
+          <br>
+           <ul class="side-list">
+               <li>
+                 <!-- ICONS FOR SIDE-MENU -->
+                <div> <i class="fa-solid fa-film"></i>&nbsp;<span>Movies</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <li>
+                <div> <i class="fa-solid fa-tv"></i>&nbsp;<span>Tv Shows</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <li>
+                <div><i class="fa-solid fa-video"></i>&nbsp;<span>Watch</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <li>
+                <div> <i class="fa-solid fa-award"></i>&nbsp;<span>Awards & Events</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <li>
+                <div><i class="fa-solid fa-person"></i>&nbsp;<span>Celebs</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <li>
+                <div><i class="fa-solid fa-globe"></i>&nbsp;<span>Community</span></div>
+                <div><i class="fa-solid fa-chevron-down"></i></div>
+               </li>
+               <br>
+               <br>
+               <li>
+                  <div>
+                    <h4>IMDbPro</h4>
+                    <p style="font-size: 0px;">For Industrial Professionals</p>
+                  </div>
+                  <div><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+               </li>
+             
+           </ul>
+       </div>
+
+
+
+    
+
+       <!-- Below div is the container for the movies which are coming through IMDB API-->
+       <div id="movies">
+      </div>
+
+
+      <!--BUTTONS -->
+      <div class="page-navigate">
+        <button id="prev-page">Prev</button>
+        <button id="next-page">Next</button>
+      </div>
+         
+
+    </section>
+
+                <!-- FOOTER -->
+    <footer class="bg-dark text-center text-white">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/imdb" role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/imdb" role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+    
+    
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/imdb/" role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+
+           <!-- youtube -->
+           <a class="btn btn-outline-light btn-floating m-1" href="https://www.youtube.com/imdb" role="button"
+           ><i class="fab fa-youtube"></i
+         ></a>
+
+         <!-- tiktok -->
+         <a class="btn btn-outline-light btn-floating m-1" href="https://www.tiktok.com/@imdb" role="button"
+         ><i class="fab fa-tiktok"></i
+       ></a>
+    
+        
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 1990-2023 by IMDb.com, Inc.<br>
+        <a class="text-white" href="https://www.imdb.com/">IMDb</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+    <!-- LINKING JS  -->
+   <script type="text/javascript" src="./JavaScript/script1.js"></script> 
+   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script> -->
+</body>
+</html>
